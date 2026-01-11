@@ -1,0 +1,28 @@
+runtime: php83
+
+env_variables:
+  APP_ENV: production
+  APP_DEBUG: false
+  APP_KEY: base64:your-app-key-here
+  DB_CONNECTION: mysql
+  CACHE_DRIVER: file
+  SESSION_DRIVER: file
+  QUEUE_CONNECTION: sync
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+
+handlers:
+- url: /.*
+  script: public/index.php
+
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^(.*/)?node_modules/.*$
+- ^(.*/)?tests/.*$
+- ^(.*/)?storage/logs/.*$
