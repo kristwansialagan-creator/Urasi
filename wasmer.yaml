@@ -1,0 +1,15 @@
+name: nexopos
+version: 1.0.0
+description: "NexoPOS - Modern Point of Sale System"
+
+build:
+  commands:
+    install: "composer install --optimize-autoloader --no-dev && npm ci"
+    build: "npm run build && php artisan config:cache && php artisan route:cache && php artisan view:cache"
+  
+runtime:
+  command: "php -S 0.0.0.0:8000 -t public"
+  
+env:
+  APP_ENV: production
+  APP_DEBUG: false

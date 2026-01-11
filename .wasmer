@@ -1,11 +1,12 @@
 {
   "commands": {
-    "install": "composer install --optimize-autoloader --no-dev && npm ci",
+    "install": "echo 'Files should be copied first' && ls -la && composer install --optimize-autoloader --no-dev && npm ci",
     "build": "npm run build && php artisan config:cache && php artisan route:cache && php artisan view:cache",
     "start": "php -S 0.0.0.0:8000 -t public"
   },
   "package_manager": "npm",
   "build_command": "npm run build",
   "use_composer": true,
-  "composer_build_script": "post-update-cmd"
+  "composer_build_script": "post-update-cmd",
+  "copy_files_first": true
 }
